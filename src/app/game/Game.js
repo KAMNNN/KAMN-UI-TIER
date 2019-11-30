@@ -7,8 +7,11 @@ import { GAME_STATES } from './constants';
 function Game({
   gameState,
   sessionid,
+	challenge,
   showSpinner,
-  joinSession
+	joinSession,
+	getQuestion,
+	sendAnswer
 }) {
   if (gameState === GAME_STATES.JOIN_STATE) {
   return (<div>
@@ -25,13 +28,16 @@ function Game({
       <p>GameState: {gameState}</p>
       <p>Current Session: {sessionid}</p>
       <p>Waiting for Questions..</p>
+			<button onClick={() => getQuestion('4389')}>GetQuestion</button>
     </div>)
   } else if (gameState === 'QUESTION_STATE') {
     return (<div>
       <p>GameState: {gameState}</p>
       <p>Current Session: {sessionid}</p>
-      <p> 3 + 4? </p>
-     <button>1</button><button>9</button><button>7</button><button>4</button> 
+			<p> {JSON.parse(challenge).question} </p>
+			{JSON.parse(challenge).choices.map((choice, key) =>
+				<button onClick={() => sendAnswer('4389', '223', choice === JSON.parse(challenge).answer)}>{choice}</button>
+			)}
     </div>)
   } else {
     return (<div>
@@ -42,17 +48,20 @@ function Game({
 
 // container 
 const mapStateToProps = state => {
-  const { gameState, sessionid, showSpinner } = state.home;
+  const { gameState, sessionid, challenge, showSpinner } = state.home;
   return {
     gameState,	  
     sessionid,
+		challenge,
     showSpinner
   }
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    joinSession: sessionid => dispatch(homeOperations.joinSession(sessionid))
+    joinSession: sessionid => dispatch(homeOperations.joinSession(sessionid)),
+		getQuestion: sessionid => dispatch(homeOperations.getQuestion(sessionid)),
+		sendAnswer: (sessionid, questionid, correct) => dispatch(homeOperations.sendAnswer(sessionid, questionid, correct))
   }
 };
 
