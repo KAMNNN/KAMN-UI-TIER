@@ -5,7 +5,7 @@ import {
   Route
 } from 'react-router-dom';
 
-import Game from './game/Game';
+import Game from './game/index';
 
 class App extends Component {
   render() {

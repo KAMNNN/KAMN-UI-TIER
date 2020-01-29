@@ -1,0 +1,195 @@
+.App {
+    height: 100vh;
+    background: #139DD2;
+}
+
+.wrapper {
+    background: #F7F7F7;
+    display: flex;
+    flex-flow: column;
+    height: 100vh;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+img {
+    margin: 5px auto 0 auto;
+    width: 95%;
+    height: auto;
+    border-bottom: solid lightgrey 1px !important;
+}
+
+.session-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.state-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: lightgrey;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.question-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 10px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+p {
+    margin-bottom: 4px !important;
+    color: grey;
+    font-size: 16px;
+    text-align: center;
+}
+
+.status {
+    color: black;
+}
+
+label {
+    font-size: 16px;
+    height: 30px;
+    color: grey;
+    margin: 0 !important;
+}
+
+input {
+    width: 70px;
+    height: 30px;
+    background: white;
+    padding: 1px;
+    border: 1px solid lightgrey;
+    color: #139DD2;
+    font-size: 18px;
+    text-align: center;
+    border-right: none;
+}
+
+input:focus {
+    outline: #139DD2 outset 2px;
+}
+
+.session-button {
+    width: 70px;
+    height: 30px;
+    background: #139DD2;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: 1px solid lightgrey;
+    border-left: none;
+    color: white;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+.session-button:focus {
+    outline: none;
+    border: #139DD2 solid 1px;
+    background: #118dbd;
+}
+
+.question-button {
+    width: 150px;
+    height: 30px;
+    background: #139DD2;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+    color: white;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+.question-button:focus {
+    outline: none;
+    border: #139DD2 solid 1px;
+    background: #118dbd;
+}
+
+/* Media queries for responsive styling */
+@media (min-width: 576px) { 
+    p {
+        margin-bottom: 5px !important;
+        font-size: 20px;
+    }
+    label {
+        height: 38px;
+        font-size: 20px;
+    }
+    input {
+        width: 88px;
+        height: 38px;
+        font-size: 23px;
+    }
+    .session-button {
+        width: 105px;
+        height: 38px;
+        border-top-right-radius: 6px;
+        border-bottom-right-radius: 6px;
+        font-size: 23px;
+    }
+    .question-button {
+        width: 200px;
+        height: 38px;
+        border-radius: 6px;
+        font-size: 23px;
+    }
+    .state-container {
+        border-radius: 6px;
+    }
+    .question-container {
+        padding: 37px 10px;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    p {
+        margin-bottom: 6px !important;
+        font-size: 24px;
+    }
+    label {
+        height: 45px;
+        font-size: 24px;
+    }
+    input {
+        width: 105px;
+        height: 45px;
+        font-size: 27px;
+    }
+    .session-button {
+        width: 105px;
+        height: 45px;
+        border-top-right-radius: 7px;
+        border-bottom-right-radius: 7px;
+        font-size: 27px;
+    }
+    .question-button {
+        width: 250px;
+        height: 45px;
+        border-radius: 7px;
+        font-size: 27px;
+    }
+    .state-container {
+        border-radius: 7px;
+    }
+    .question-container {
+        padding: 45px 10px;
+    }
+}
