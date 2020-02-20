@@ -21,12 +21,11 @@ function Game({
     return (<div className={"wrapper"}>
       <img src={header} alt="header" />
       <div className={"session-container"}>
-        {/* <p>Game State: {gameState}</p>
-        <p>Current Session: {sessionid}</p> */}
         <div className={"row"}>
           <label>
             Session ID:&nbsp;
-            <input type="text" placeholder="ZOT1" id="sessionidinput" sessionid="sessionid" />
+            <input type="text" placeholder="ZOT1" id="sessionidinput" sessionid="sessionid"
+                   onKeyDown={(e) => keyPressHandle(e, joinSession)} />
           </label>
           <button className={"session-button"} onClick={() => joinSession(document.getElementById('sessionidinput').value)}>Join</button>
         </div>
@@ -38,7 +37,6 @@ function Game({
       <img src={header} alt="header" />
       <div className={"session-container"}>
         <div className={"state-container"}>
-          <p>Game State: <span className={"status"}>{gameState}</span></p>
           <p>Current Session: <span className={"status"}>{sessionid}</span></p>
         </div>
         <div className={"question-container"}>
@@ -49,17 +47,31 @@ function Game({
     </div>)
   } else if (gameState === 'QUESTION_STATE') {
     return (<div className={"wrapper"}>
-      <p>GameState: {gameState}</p>
-      <p>Current Session: {sessionid}</p>
-			<p> {JSON.parse(challenge).question} </p>
-			{JSON.parse(challenge).choices.map((choice, key) =>
-				<button onClick={() => sendAnswer('4389', '223', choice === JSON.parse(challenge).answer)}>{choice}</button>
-			)}
+      <img src={header} alt="header" />
+      <div className={"session-container"}>
+        <div className={"state-container"}>
+          {/* <p>Game State: <span className={"status"}>{gameState}</span></p> */}
+          <p>Current Session: <span className={"status"}>{sessionid}</span></p>
+        </div>
+        <div className={"answer-container"}>
+          <p className={"question"}>Q: {JSON.parse(challenge).question} </p>
+          {JSON.parse(challenge).choices.map((choice, key) =>
+				  <button className={"answer-button"} onClick={() => sendAnswer('4389', '223', choice === JSON.parse(challenge).answer)}>{choice}</button>
+			    )}
+        </div>
+      </div>
     </div>)
   } else {
     return (<div>
       <p>Loading..</p>
     </div>)
+  }
+};
+
+// Key press handler
+const keyPressHandle = (event, joinSession) => {
+  if (event.key === 'Enter') {
+    joinSession(event.target.value);
   }
 };
 

@@ -46,6 +46,15 @@ img {
     padding: 30px 10px;
 }
 
+.answer-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 10px;
+}
+
 .row {
     display: flex;
     flex-direction: row;
@@ -61,6 +70,11 @@ p {
 
 .status {
     color: black;
+}
+
+.question {
+    color: black;
+
 }
 
 label {
@@ -107,7 +121,7 @@ input:focus {
 
 .question-button {
     width: 150px;
-    height: 30px;
+    height: 40px;
     background: #139DD2;
     border-radius: 5px;
     border: 1px solid lightgrey;
@@ -120,6 +134,17 @@ input:focus {
     outline: none;
     border: #139DD2 solid 1px;
     background: #118dbd;
+}
+
+.answer-button {
+    width: 100%;
+    height: 30px;
+    background: #139DD2;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+    color: white;
+    font-size: 18px;
+    letter-spacing: 1px;
 }
 
 /* Media queries for responsive styling */
@@ -146,7 +171,7 @@ input:focus {
     }
     .question-button {
         width: 200px;
-        height: 38px;
+        height: 50px;
         border-radius: 6px;
         font-size: 23px;
     }
@@ -182,7 +207,7 @@ input:focus {
     }
     .question-button {
         width: 250px;
-        height: 45px;
+        height: 60px;
         border-radius: 7px;
         font-size: 27px;
     }
